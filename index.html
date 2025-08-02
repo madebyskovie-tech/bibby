@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Making of the Bible: An Interactive Exploration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+<script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://esm.sh/@google/genai@^1.12.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="overflow-x-hidden">
+
+    <header id="site-header" class="site-header">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="flex justify-between items-center py-4 transition-all duration-300">
+                <a href="#" class="flex items-center gap-2 text-xl font-bold">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v11.494m-9-5.747h18"></path></svg>
+                    <span>The Bible Project</span>
+                </a>
+                <nav class="hidden md:flex items-center gap-2">
+                    <a class="nav-link active" data-target="debate">The Debate</a>
+                    <a class="nav-link" data-target="timeline">Timeline</a>
+                    <a class="nav-link" data-target="authors">Authorship</a>
+                    <a class="nav-link" data-target="canon">Canon</a>
+                    <a class="nav-link" data-target="transmission">Transmission</a>
+                    <a class="nav-link btn-primary-outline" data-target="ai_tools">✨ AI Tools</a>
+                </nav>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="p-2 rounded-md">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                 <nav class="flex flex-col gap-3">
+                    <a class="nav-link active" data-target="debate">The Debate</a>
+                    <a class="nav-link" data-target="timeline">Timeline</a>
+                    <a class="nav-link" data-target="authors">Authorship</a>
+                    <a class="nav-link" data-target="canon">Canon</a>
+                    <a class="nav-link" data-target="transmission">Transmission</a>
+                    <a class="nav-link" data-target="ai_tools">✨ AI Tools</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="hero-section text-center">
+        <div class="container mx-auto px-4 py-20 md:py-28">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 gradient-text">The Making of the Bible</h1>
+            <p class="text-lg md:text-xl max-w-3xl mx-auto mb-8">An interactive journey from divine breath to ancient text, exploring the theological debates, historical timelines, and scholarly discoveries that shaped the world's most influential book.</p>
+            <button type="button" id="explore-btn-hero" class="btn-primary text-lg">
+                Begin Exploration
+                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+            </button>
+        </div>
+    </div>
+
+    <div class="container mx-auto p-4 md:p-8">
+        <main class="space-y-12">
+            <!-- Section: The Debate -->
+            <section id="debate" class="section card reveal-on-scroll">
+                <div class="prose max-w-none">
+                    <h2 class="gradient-text">One Book, Two Views: Divine vs. Human Origins</h2>
+                    <p>The journey of the Bible from oral traditions to a codified scripture is viewed through two principal lenses: the theological and the scholarly. Understanding the making of the Bible requires examining both frameworks, their core assumptions, and their dynamic interplay.</p>
+                     <button type="button" class="btn-summarize">✨ Summarize this section</button>
+                    
+                    <h3>The Theological Framework: Divine Inspiration</h3>
+                    <p>This perspective is anchored in the doctrine of divine inspiration, famously articulated in 2 Timothy 3:16: “All Scripture is God-breathed (Greek: <span class="interactive-term" data-term="Theopneustos">theopneustos</span>).” This single word forms the bedrock of the traditional view, asserting that despite the multiplicity of human authors, God is the ultimate author, ensuring a unified and coherent message. The term describes the inherent quality of the text as a divine product, imbued with the creative, life-giving power of God's "breath" (Hebrew: <span class="interactive-term" data-term="Ruah">ruah</span>).</p>
+
+                    <div class="mt-4 accordion"><button type="button" class="accordion-button">Models of Divine-Human Collaboration<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div class="accordion-content"><p>Theologians have proposed various models to explain the collaboration between the divine and human authors:</p><ul><li><strong>The Dictation Theory:</strong> Posits that human authors were passive secretaries transcribing God's words. Largely rejected today for not accounting for the authors' unique styles and perspectives.</li><li><strong>The Limited Inspiration Theory:</strong> Suggests God inspired the main theological concepts but allowed human authors freedom in areas of history or science, permitting potential errors.</li><li><strong>The Neo-Orthodox View:</strong> Holds that the Bible is a fallible human witness *to* the Word of God (Jesus Christ), and it *becomes* the Word of God in a moment of faith.</li><li><strong>The Plenary Verbal Inspiration Theory:</strong> The traditional view of orthodox Christianity. It asserts that inspiration extends to all parts of Scripture ("plenary") and to the very words chosen ("verbal"). God supernaturally guided the writers, using their unique personalities and styles, to produce a text that is simultaneously human and divine. <br><button type="button" class="contextual-ai-btn" data-prompt="Explain the concepts of biblical infallibility and inerrancy, and how they relate to the theory of Plenary Verbal Inspiration.">✨ Explain Infallibility vs. Inerrancy</button></li></ul></div></div>
+
+                    <h3>The Scholarly Framework: The Historical-Critical Enterprise</h3>
+                    <p>Beginning in the 18th century, the <span class="interactive-term" data-term="Historical-Critical Method">Historical-Critical Method (HCM)</span> applied the same principles of literary and historical analysis to the Bible as to any other ancient text. Its goal is to understand "the world behind the text"—the historical circumstances, cultural contexts, and human processes that led to its creation. The HCM aims to reconstruct the original meaning as intended by its human author(s), a concept known as the <span class="interactive-term" data-term="sensus literalis sive historicus">sensus literalis sive historicus</span> ("the literal or historical sense"). This view posits a multiplicity of human authors and editors, and sees "meaning" as plural and historically contingent, rather than singular and timeless.</p>
+                </div>
+            </section>
+
+            <!-- Section: Timeline -->
+            <section id="timeline" class="section card reveal-on-scroll">
+                <h2 class="text-3xl font-bold mb-6 gradient-text">A Timeline of the Bible's Creation</h2>
+                 <button type="button" class="btn-summarize">✨ Summarize this section</button>
+                <div id="timeline-container" class="relative">
+                     <div class="timeline-line"></div>
+                     <div id="timeline-progress" class="timeline-progress"></div>
+                    <div class="space-y-4">
+                        <div class="ranked-list-item reveal-on-scroll"> <div class="rank-number"></div> <div class="ranked-list-content"> <p class="font-semibold text-lg"><span data-count="950">c. 950</span> BCE</p> <p>The Yahwist (J) source of the Torah is likely composed in the southern Kingdom of Judah.</p> </div></div>
+                        <div class="ranked-list-item reveal-on-scroll"> <div class="rank-number"></div> <div class="ranked-list-content"> <p class="font-semibold text-lg"><span data-count="850">c. 850</span> BCE</p> <p>The Elohist (E) source is likely composed in the northern Kingdom of Israel.</p> </div></div>
+                        <div class="ranked-list-item reveal-on-scroll"> <div class="rank-number"></div> <div class="ranked-list-content"> <p class="font-semibold text-lg"><span data-count="621">c. 621</span> BCE</p> <p>The Deuteronomist (D) source is composed, likely associated with King Josiah's reforms.</p> </div></div>
+                        <div class="ranked-list-item reveal-on-scroll"> <div class="rank-number"></div> <div class="ranked-list-content"> <p class="font-semibold text-lg"><span data-count="550">c. 550</span>-450 BCE</p> <p>The Priestly (P) source is composed during or after the Babylonian Exile, and the Torah (J,E,D,P) is redacted into its final form.</p> </div></div>
+                        <div class="ranked-list-item reveal-on-scroll"> <div class="rank-number"></div> <div class="ranked-list-content"> <p class="font-semibold text-lg"><span data-count="70">c. 65-70</span> CE</p> <p>The Gospel of Mark is written, the first of the four canonical gospels.</p> </div></div>
+                        <div class="ranked-list-item reveal-on-scroll"> <div class="rank-number"></div> <div class="ranked-list-content"> <p class="font-semibold text-lg"><span data-count="95">c. 80-95</span> CE</p> <p>The Gospels of Matthew and Luke are written, using Mark and the "Q" source. The Gospel of John is written independently.</p> </div></div>
+                        <div class="ranked-list-item reveal-on-scroll"> <div class="rank-number"></div> <div class="ranked-list-content"> <p class="font-semibold text-lg"><span data-count="140">c. 140</span> CE</p> <p>The heretic Marcion creates his own edited canon, prompting the mainstream church to more formally define its own.</p> </div></div>
+                        <div class="ranked-list-item reveal-on-scroll"> <div class="rank-number"></div> <div class="ranked-list-content"> <p class="font-semibold text-lg"><span data-count="180">c. 180</span> CE</p> <p>The Muratorian Fragment lists most of the books that would become the New Testament, showing an emerging consensus.</p> </div></div>
+                        <div class="ranked-list-item reveal-on-scroll"> <div class="rank-number"></div> <div class="ranked-list-content"> <p class="font-semibold text-lg"><span data-count="350">c. 325-350</span> CE</p> <p>Codex Vaticanus and Codex Sinaiticus, our oldest complete Christian Bibles, are meticulously copied.</p> </div></div>
+                        <div class="ranked-list-item reveal-on-scroll"> <div class="rank-number"></div> <div class="ranked-list-content"> <p class="font-semibold text-lg"><span data-count="367">367</span> CE</p> <p>Athanasius, Bishop of Alexandria, lists the 27 books of the New Testament in his Easter Letter, the first list that exactly matches our current canon.</p> </div></div>
+                        <div class="ranked-list-item reveal-on-scroll"> <div class="rank-number"></div> <div class="ranked-list-content"> <p class="font-semibold text-lg"><span data-count="1946">1946</span> CE</p> <p>The Dead Sea Scrolls are discovered, providing biblical manuscripts a thousand years older than any previously known.</p> </div></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section: Authorship -->
+            <section id="authors" class="section card prose max-w-none reveal-on-scroll">
+                <h2 class="gradient-text">Uncovering the Authors</h2>
+                 <button type="button" class="btn-summarize">✨ Summarize this section</button>
+                <h3>The Torah: One Author or Multiple Sources?</h3>
+                <p>Tradition holds that Moses wrote the Torah (the first five books). However, textual clues like contradictions, doublets (repeated stories), and varying divine names led to the <strong><span class="interactive-term" data-term="Documentary Hypothesis">Documentary Hypothesis</span></strong>. This theory proposes the Torah is a redaction of at least four distinct sources (J, E, D, and P).</p>
+                <div class="overflow-x-auto">
+                    <table>
+                        <thead>
+                            <tr><th>Source</th><th>Date/Context</th><th>Name for God</th><th>View of God</th><th>Key Themes</th><th>Style</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>J (Yahwist)</strong></td><td>c. 950 BCE; Southern Kingdom (Judah)</td><td>YHWH (LORD)</td><td>Anthropomorphic; walks and talks with humans.</td><td>Divine promise, human fallibility, centrality of Judah.</td><td>Vivid, epic narrative.</td></tr>
+                            <tr><td><strong>E (Elohist)</strong></td><td>c. 850 BCE; Northern Kingdom (Israel)</td><td>Elohim (until revealed to Moses)</td><td>Transcendent; communicates via dreams, prophets.</td><td>Fear of God, prophecy, morality, covenant.</td><td>Less anthropomorphic.</td></tr>
+                            <tr><td><strong>D (Deuteronomist)</strong></td><td>c. 621 BCE; Reign of Josiah</td><td>YHWH (LORD)</td><td>Demands absolute loyalty and centralized worship.</td><td>Covenant fidelity, law and morals.</td><td>Hortatory, sermonic.</td></tr>
+                            <tr><td><strong>P (Priestly)</strong></td><td>c. 550-450 BCE; Exilic Period</td><td>Elohim (until revealed to Moses)</td><td>Majestic, transcendent, orderly.</td><td>Ritual, purity, genealogies, Sabbath, priesthood.</td><td>Formal, structured, legalistic.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mt-4 accordion"><button type="button" class="accordion-button">Critiques and Alternatives<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div class="accordion-content"><p>The classic Documentary Hypothesis has faced critiques, such as a lack of external evidence (no J, E, D, or P manuscripts have ever been found) and methodological subjectivity. This has led to refined theories:</p><ul><li><strong>The Supplementary Hypothesis:</strong> Suggests a core document was progressively expanded by later authors who "supplemented" it with new material.</li><li><strong>The Fragmentary Hypothesis:</strong> Posits the Torah was built not from long narratives but from a multitude of shorter, independent stories and legal fragments stitched together over time.</li></ul> <button type="button" class="contextual-ai-btn" data-prompt="Explain the 'Neo-Documentary Hypothesis' and how it attempts to refine the classic Wellhausen model.">✨ Learn about the Neo-Documentary Hypothesis</button></div></div>
+
+                <h3>The Gospels: The Synoptic Problem</h3>
+                <p>Matthew, Mark, and Luke share so much material in a similar order they are called the "Synoptic Gospels." The "<span class="interactive-term" data-term="Synoptic Problem">Synoptic Problem</span>" asks how to explain this relationship. The dominant solution is the <strong><span class="interactive-term" data-term="Two-Source Hypothesis">Two-Source Hypothesis</span></strong>, which posits that Mark was written first, and both Matthew and Luke used Mark and a second, now-lost sayings source called "Q" (from German <em>Quelle</em>, "source").</p>
+                <p>The case for <strong><span class="interactive-term" data-term="Markan Priority">Markan Priority</span></strong> rests on several arguments: Mark's shorter length but longer individual stories, his less polished grammar, and his "harder readings" that portray Jesus in a more raw, human light, which Matthew and Luke often soften.</p>
+
+                 <table>
+                    <thead><tr><th>Hypothesis</th><th>Proposed Order</th><th>Dependencies</th><th>Key Strengths/Weaknesses</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Two-Source Hypothesis</strong></td><td>1. Mark<br>2. Matthew & Luke (independent)</td><td>Matthew & Luke used Mark + Q.</td><td><strong>Strengths:</strong> Explains Markan priority and extensive verbatim agreement. <strong>Weaknesses:</strong> Relies on hypothetical Q; struggles to explain "minor agreements."</td></tr>
+                        <tr><td><strong>Farrer Hypothesis</strong></td><td>1. Mark<br>2. Matthew<br>3. Luke</td><td>Matthew used Mark.<br>Luke used Mark + Matthew.</td><td><strong>Strengths:</strong> More economical (no Q); explains minor agreements easily. <strong>Weaknesses:</strong> Why would Luke alter Matthew's structure so radically?</td></tr>
+                        <tr><td><strong>Griesbach Hypothesis</strong></td><td>1. Matthew<br>2. Luke<br>3. Mark</td><td>Luke used Matthew.<br>Mark used Matthew + Luke.</td><td><strong>Strengths:</strong> Aligns with early church tradition (Matthean priority). <strong>Weaknesses:</strong> Fails to convincingly explain Mark's "hard readings."</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Section: Canonization -->
+            <section id="canon" class="section card prose max-w-none reveal-on-scroll">
+                <h2 class="gradient-text">Forging the Canon: The Books That Made the Cut</h2>
+                <p>The Bible is a "canon" (from the Greek for "measuring stick"), a curated library of texts deemed authoritative. This was not a single event but a gradual process of recognition by communities of faith, later formalized by councils. Several factors spurred this process, including the rise of heresies like Gnosticism and the direct challenge from figures like Marcion, who created his own edited list of books around 140 CE.</p>
+                 <button type="button" class="btn-summarize">✨ Summarize this section</button>
+                
+                <h3>Criteria for Canonicity</h3>
+                <p>The early church used an informal set of criteria to recognize authoritative Scripture:</p>
+                <ul>
+                    <li><strong>Apostolicity:</strong> Was the book written by an apostle or a close associate of an apostle (e.g., Mark, associate of Peter; Luke, associate of Paul)?</li>
+                    <li><strong>Orthodoxy:</strong> Did the book's teachings conform to the "<span class="interactive-term" data-term="Regula fidei">rule of faith</span>" (<em>regula fidei</em>), the core apostolic tradition held universally by the churches?</li>
+                    <li><strong>Catholicity:</strong> Was the book widely and continuously accepted and used in worship services across the Christian world?</li>
+                </ul>
+
+                <h3>Spotlight on Non-Canonical Books</h3>
+                <div class="space-y-2">
+                    <div class="accordion"><button type="button" class="accordion-button">The Gospel of Thomas<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div class="accordion-content"><p><strong>Content:</strong> A collection of 114 "secret sayings" of Jesus. <br><strong>Theology:</strong> Reflects a Gnostic worldview, emphasizing salvation through secret knowledge (<em>gnosis</em>).<br><strong>Reason for Exclusion:</strong> Gnostic theology, lack of narrative framework, and no connection to Jesus's passion and resurrection, which were central to apostolic teaching.</p></div></div>
+                    <div class="accordion"><button type="button" class="accordion-button">The Book of Enoch<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div class="accordion-content"><p><strong>Content:</strong> Apocalyptic visions of Enoch's heavenly journeys, the fall of the "Watchers" (angels), and final judgment.<br><strong>Influence:</strong> Immensely influential in the Second Temple period and quoted in the New Testament (Jude 1:14-15).<br><strong>Reason for Exclusion:</strong> Non-apostolic authorship and fantastical content that diverged from emerging orthodox consensus. <br><button type="button" class="contextual-ai-btn" data-prompt="Explain the story of the 'Watchers' or 'fallen angels' in the Book of Enoch and how it influenced later ideas about angels and demons.">✨ Learn more about the Watchers</button></p></div></div>
+                    <div class="accordion"><button type="button" class="accordion-button">The Gospel of Peter<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div class="accordion-content"><p><strong>Content:</strong> A passion narrative featuring a talking, walking cross that emerges from the tomb.<br><strong>Theology:</strong> Contains Docetic tendencies (the idea that Jesus only *seemed* human and did not truly suffer).<br><strong>Reason for Exclusion:</strong> Late date, Docetic Christology, and strong anti-Jewish polemic. </p></div></div>
+                </div>
+            </section>
+
+            <!-- Section: Transmission -->
+            <section id="transmission" class="section card prose max-w-none reveal-on-scroll">
+                <h2 class="gradient-text">From Scroll to Codex: Preserving the Text</h2>
+                <p>Because no original biblical manuscripts (autographs) have survived, we rely on thousands of hand-written copies. The process of transmission was fraught with potential for error, yet undertaken with a reverence that ensured remarkable fidelity.</p>
+                 <button type="button" class="btn-summarize">✨ Summarize this section</button>
+                <h3>Guardians of the Word: Scribal Practice</h3>
+                <p>Jewish scribes, particularly the <strong>Masoretes</strong> (7th-10th centuries CE), developed sophisticated systems to preserve the Hebrew Bible:</p>
+                <ul><li><strong>Meticulous Copying Rules:</strong> They standardized everything from ink and skins to counting letters and words to ensure no accidental omissions or additions occurred.</li><li><strong>Vocalization and Accentuation:</strong> They invented a system of vowel points (<em>niqqud</em>) to add to the consonantal Hebrew text, preserving the traditional pronunciation and interpretation for all future generations.</li><li><strong>The Masorah:</strong> They created an elaborate system of marginal notes that recorded textual statistics and pointed out variants to safeguard against future scribal errors.</li></ul>
+                
+                <h3>The Science of Textual Criticism</h3>
+                <p>Textual criticism is the discipline of comparing manuscripts to reconstruct the earliest attainable text. Critics work with established principles to evaluate which variant reading is most likely original:</p>
+                <ul><li><strong>External Evidence:</strong> Readings from older, more reliable manuscripts are "weighed, not counted" and generally preferred.</li><li><strong>Internal Evidence:</strong> Involves two key principles:
+                    <ol><li><span class="interactive-term" data-term="Lectio Difficilior Potior">Lectio Difficilior Potior</span> ("The more difficult reading is the stronger"): Scribes tended to simplify difficult phrases, so the "harder" reading is often judged to be original.</li><li><span class="interactive-term" data-term="Lectio Brevior Potior">Lectio Brevior Potior</span> ("The shorter reading is the stronger"): Scribes tended to add explanatory words, so the shorter reading is often preferred.</li></ol>
+                </li></ul>
+                 <button type="button" class="contextual-ai-btn btn-secondary" data-prompt="Explain the work of a textual critic. Give a simple example of a variation between manuscripts (like a spelling difference or a different word) and how a scholar would use principles like 'lectio difficilior' to decide which version is more likely to be original.">✨ See Textual Criticism in Action</button>
+
+                <h3>Landmark Discoveries</h3>
+                <p>Two archaeological discoveries dramatically transformed the field:</p>
+                <ul><li><strong>The Dead Sea Scrolls (Found 1946):</strong> This collection of Jewish manuscripts from the 3rd century BCE to the 1st century CE provided Hebrew Bible texts a thousand years older than the great Masoretic codices. They revealed an astonishing degree of accuracy in transmission while also shattering the idea of a single, uniform text in the Second Temple period, showing evidence of multiple co-existing text-types.</li><li><strong>The Great Uncial Codices (4th Century CE):</strong> Codex Sinaiticus and Codex Vaticanus are our oldest, nearly complete copies of the entire Christian Bible in Greek. A "<span class="interactive-term" data-term="Codex">codex</span>" is an ancient book format that Christians enthusiastically adopted. These codices provide a remarkably early and reliable baseline for the New Testament text.</li></ul>
+            </section>
+
+            <!-- Section: AI Tools -->
+            <section id="ai_tools" class="section ai-tools-card reveal-on-scroll">
+                <h2 class="gradient-text-light">AI-Powered Study Tools</h2>
+                <p class="subtitle">Use the power of AI to dive deeper. Get summaries, explain passages, or compare concepts.</p>
+                
+                <div class="space-y-10">
+                    <!-- Explain a Passage -->
+                    <div>
+                        <h3>Explain a Passage</h3>
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <input type="text" id="passage-input" class="input-dark" placeholder="e.g., John 3:16 or Genesis 1:1-5" aria-label="Biblical passage to explain">
+                            <button type="button" id="explain-btn" class="btn-primary w-full sm:w-auto">✨ Get Explanation</button>
+                        </div>
+                        <div class="mt-3 flex flex-wrap gap-2 suggestion-chips" data-target-input="passage-input">
+                            <button type="button" class="suggestion-chip">John 3:16</button>
+                            <button type="button" class="suggestion-chip">Psalm 23</button>
+                            <button type="button" class="suggestion-chip">Romans 8:28</button>
+                        </div>
+                        <div id="explain-output" class="output-box-dark" aria-live="polite"></div>
+                    </div>
+
+                    <!-- Compare & Contrast -->
+                    <div>
+                        <h3>Compare & Contrast</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <input type="text" id="compare1-input" class="input-dark" placeholder="Concept 1 (e.g., Jesus in Mark)" aria-label="First concept to compare">
+                            <input type="text" id="compare2-input" class="input-dark" placeholder="Concept 2 (e.g., Jesus in John)" aria-label="Second concept to compare">
+                        </div>
+                        <div class="mt-3 flex flex-wrap gap-2 suggestion-chips" data-target-input-1="compare1-input" data-target-input-2="compare2-input">
+                            <button type="button" class="suggestion-chip">Creation: Genesis 1 vs. Genesis 2</button>
+                            <button type="button" class="suggestion-chip">Jesus in Mark vs. Jesus in John</button>
+                            <button type="button" class="suggestion-chip">Love: 1 Corinthians 13 vs. 1 John 4</button>
+                        </div>
+                        <button type="button" id="compare-btn" class="mt-3 btn-primary">✨ Generate Comparison</button>
+                        <div id="compare-output" class="output-box-dark" aria-live="polite"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container mx-auto px-8 py-12">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div>
+                    <h4>Explore</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#debate" class="footer-nav-link">Theological View</a></li>
+                        <li><a href="#debate" class="footer-nav-link">Scholarly View</a></li>
+                        <li><a href="#timeline" class="footer-nav-link">Timeline</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Content</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#authors" class="footer-nav-link">Authorship</a></li>
+                        <li><a href="#canon" class="footer-nav-link">Canonization</a></li>
+                        <li><a href="#transmission" class="footer-nav-link">Transmission</a></li>
+                        <li><a href="#transmission" class="footer-nav-link">Discoveries</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#ai_tools" class="footer-nav-link">AI Tools</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Sources</a></li>
+                    </ul>
+                </div>
+                 <div>
+                    <h4>Connect</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Github</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 The Bible Project. An interactive exploration powered by Gemini.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Modal -->
+    <div id="ai-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal-content">
+            <button type="button" class="modal-close-btn" aria-label="Close modal">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <h2 id="modal-title" class="text-2xl font-bold mb-4 gradient-text">AI-Powered Explanation</h2>
+            <div id="modal-output" class="prose max-w-none" aria-live="polite"></div>
+        </div>
+    </div>
+
+    <button type="button" id="back-to-top" class="btn-primary" aria-label="Back to top">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path></svg>
+    </button>
+    
+    <div id="ai-tooltip" class="ai-tooltip" role="tooltip"></div>
+
+
+    <script type="module" src="index.tsx"></script>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
