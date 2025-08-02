@@ -22,53 +22,81 @@ This is a single-page web application that provides an interactive and education
 ## Tech Stack
 
 -   **Frontend:** HTML5, CSS3, TypeScript
+-   **Build Tool:** Vite
 -   **Styling:** Tailwind CSS (via CDN), Custom CSS for theming and animations
 -   **AI:** Google Gemini API (`@google/genai`)
 -   **Fonts:** Google Fonts (Inter)
 
 ## Prerequisites
 
--   A modern web browser (Chrome, Firefox, Safari, Edge).
--   A local web server to serve the files (required for ES Modules to work correctly).
+-   Node.js and npm (or yarn).
 -   A **Google Gemini API Key**.
 
 ## Getting Started
 
 ### 1. API Key Configuration
 
-This project requires a Google Gemini API key to power its AI features. The application is designed to be run in an environment where this key is provided as `process.env.API_KEY`.
+This project requires a Google Gemini API key to power its AI features. The application is designed to be run in an environment where this key is provided as an environment variable named `API_KEY`.
 
-**Important:** Standard browser environments do not have a `process` object. This project assumes it's being run on a platform or with a development server (like Vite, Parcel, or Webpack) that replaces `process.env.API_KEY` with a valid key during the serving or building process. To run this project, you must first ensure your environment is configured to do this.
+You must ensure that the `API_KEY` environment variable is available in your shell before running the development or build commands. For hosting platforms like Render, this should be set in the service's environment variable settings.
 
-### 2. Running the Application Locally
+### 2. Installation & Running
 
-Once the API key is configured in your environment, you can serve the project files using any simple local web server.
+1.  **Install dependencies:**
+    ```bash
+    # Using npm
+    npm install
 
-1.  Navigate to the project's root directory in your terminal.
-2.  Start a web server. Here are two common options:
+    # Or using yarn
+    yarn install
+    ```
 
-    -   **Using Python:**
-        ```bash
-        # For Python 3
-        python3 -m http.server
-        ```
+2.  **Run in Development Mode:**
+    To run the app with a local development server and hot-reloading:
+    ```bash
+    # Using npm
+    npm run dev
 
-    -   **Using Node.js (requires the `http-server` package):**
-        ```bash
-        # If you don't have http-server, you can run it with npx
-        npx http-server
-        ```
-3.  Open your web browser and navigate to the local address provided by the server (e.g., `http://localhost:8000` or `http://127.0.0.1:8080`).
+    # Or using yarn
+    yarn dev
+    ```
+
+3.  **Build for Production:**
+    To create an optimized build for deployment:
+    ```bash
+    # Using npm
+    npm run build
+
+    # Or using yarn
+    yarn build
+    ```
+    This creates a `dist` directory with the final static assets.
+
+4.  **Start Production Server:**
+    The `start` command is used by hosting platforms like Render to serve the built application. It runs after the `build` command is complete.
+    ```bash
+    # Using npm
+    npm run start
+
+    # Or using yarn
+    yarn start
+    ```
+    This command will serve the contents of the `dist` folder.
 
 ## File Structure
 
 ```
 .
-├── index.html       # The main HTML entry point for the application.
-├── index.css        # Custom styles, theming, and animations.
-├── index.tsx        # The core application logic in TypeScript.
-├── metadata.json    # Project metadata.
-└── README.md        # This file.
+├── dist/              # The build output directory (created after `npm run build`)
+├── node_modules/      # Project dependencies (created after `npm install`)
+├── index.html         # The main HTML entry point for the application.
+├── index.css          # Custom styles, theming, and animations.
+├── index.ts           # The core application logic in TypeScript.
+├── package.json       # Defines project scripts and dependencies.
+├── tsconfig.json      # TypeScript compiler configuration.
+├── vite.config.ts     # Vite build tool configuration.
+├── metadata.json      # Project metadata.
+└── README.md          # This file.
 ```
 
 ## License

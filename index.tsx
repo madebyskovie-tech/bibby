@@ -3,6 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
 */
 
+import { GoogleGenAI } from "@google/genai";
 
 // --- TYPE DEFINITIONS ---
 type HTMLElementOrNull = HTMLElement | null;
